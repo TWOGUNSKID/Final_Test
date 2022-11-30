@@ -9,27 +9,26 @@
 			font-family: sans-serif;
 		}
 		.main{
-
 			width: 80%;
-			margin: 1% auto auto auto;
+			margin: auto;
 			display: grid;
-			grid-template-columns: 25% 25% 25%;
+			grid-template-columns: 25% 25% 25% 25%;
+			background-color: white;
 			text-align: center;
+			padding: 10px;
+			margin-top: 1%;
 		}
 
 		.holder{
 			background-color: white;
-			text-align: center;
-			padding: 5%;
 			display: block;
-			height: 100%;
+			height: 95%;
 			background-color: #f8f8f8;
-			border-radius: 15px 15px 15px 15px;
-			margin-left: 1%;
+			padding: 3%;
 		}
 
 		.picture{
-			height: 55%;
+			height: 60%;
 			width: 100%;
 		}
 
@@ -52,10 +51,10 @@
 
 		.price{
 			text-align: left;
+			font-family: sans-serif;
 			font-size: 22px;
 			padding-top: 3%;
 		}
-
 		.navbar {
 	   background-color: #20639B;
 	   width: 100%;
