@@ -10,6 +10,7 @@
             background-color: #3CAEA3;
             font-family: sans-serif;
             overflow: hidden;
+            height: 100vh;
         }
 
         img {
@@ -22,6 +23,7 @@
            width: 100%;
            height: 5%;
            box-shadow: 2px 4px 8px black;
+           color: white;
         }
 
         .nav-links {
@@ -31,6 +33,8 @@
             text-align: center;
             align-items: center;
             font-size: 20px;
+            padding: 5px;
+            box-sizing: border-box;
         }
 
         .nav-links:hover {
@@ -54,9 +58,9 @@
 
         .description {
             text-align: center;
-            margin-top: 1%;
+            margin: auto;
             height: 33.07%;
-            width: 100%;
+            width: 90%;
         }
 
         a {
@@ -66,7 +70,7 @@
     </style>
     <body>
         <div class="navbar">
-            <a href="Catalogue.html">
+            <a href="Catalogue.php">
                 <div class="nav-links">
                     Catalogue
                 </div>
@@ -82,6 +86,7 @@
         <div class="picture">
             <img src="Gallery/Homepage_picture.png" style="border-radius: 5px;"/>
         </div>
+        <br/>
         <div class="description">
             Fring's Hardware has brought the best construction and heavy work equipment for generations. Our locals offer a large catalogue for our customers to choose, ensureing always they have the best quiality.
             Foundated in 1978, with Gustavo W. Fring as founder.
