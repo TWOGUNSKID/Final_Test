@@ -1,7 +1,15 @@
+<?php
+	session_start();
+	if (!isset($_SESSION["cart"]))
+	{
+		$_SESSION["cart"] = array();
+	}
+?>
 <html>
 	<head>
 		<title></title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<style>
 		body {
@@ -64,6 +72,7 @@
 			background-color: #F6D55C;
 			border: 1px solid #F6D55C;
 			margin-top: 2%;
+			cursor: pointer;
 		}
 
 		.amount{
@@ -116,10 +125,10 @@
 			echo "Connected successfully";
 			*/
 		?>
-		<div class="navbar">
-			<a href="Catalogue.php">
+		<div class="navbar" id="navigation">
+			<a href="Index.php">
 				<div class="nav-links">
-					Catalogue
+					Home
 				</div>
 			</a>
 			<div class="nav-links" style="float: right;">
@@ -144,7 +153,7 @@
 					</div>
 					<div class="rating">
 						<?php
-							for ($c=0;$c<$row["Rating"]+1;$c++)
+							for ($c=0;$c<$row["Rating"];$c++)
 							{
 						?>
 						<span class="fa fa-star checked"></span>
@@ -156,8 +165,8 @@
 						<?php echo $row["Price"]; ?>
 					</div>
 					<form action="">
-						<input type="number" class="amount" name="Quantity">
-						<input type="button" value="Add to Cart" class="button" name="<?php echo $row['Product_ID']; ?>">
+						<input type="number" class="amount" name="Quantity" id="quantity<?php echo $row["Product_ID"]; ?>" value="1">
+						<input type="button" value="Add to Cart" onclick="notegg(<?php echo $row['Product_ID']; ?>)" class="button" name="<?php echo $row['Product_ID']; ?>">
 					</form>
 				</div>
 			<?php
@@ -166,4 +175,20 @@
 			?>
 		</div>
 	</body>
+	<script>
+		function notegg(noegg){
+			var what = "quantity"+noegg;
+			document.getElementById("navigation").innerHTML = "rass";
+			$.ajax('watchout.php', {
+                type: 'POST',  
+                data: { call: "api", item: noegg, quantity: $("#"+what).val()},
+                success: function (data, status, xhr) {
+                    $('#navigation').append('status: ' + status + ', data: ' + data);
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                    //$('#tezt').append('Error: ' + errorMessage);
+                }
+            });
+		}
+	</script>
 </html>
